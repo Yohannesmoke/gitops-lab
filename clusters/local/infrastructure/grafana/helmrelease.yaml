@@ -19,12 +19,16 @@ spec:
     adminPassword: admin123
     plugins:
       - victoriametrics-logs-datasource
+    initChownData:
+      enabled: false
+    securityContext:
+      runAsNonRoot: false
+      runAsUser: 0
     service:
       type: NodePort
       nodePort: 30300
     persistence:
-      enabled: true
-      size: 2Gi
+      enabled: false
     resources:
       requests:
         cpu: 100m
