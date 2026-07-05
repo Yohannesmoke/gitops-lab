@@ -17,6 +17,8 @@ spec:
   values:
     adminUser: admin
     adminPassword: admin123
+    plugins:
+      - victoriametrics-logs-datasource
     service:
       type: NodePort
       nodePort: 30300
