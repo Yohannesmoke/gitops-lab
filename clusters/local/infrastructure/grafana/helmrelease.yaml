@@ -55,34 +55,6 @@ spec:
             type: victoriametrics-logs-datasource
             url: http://victoria-logs-victoria-logs-single-server.victoria-logs.svc.cluster.local:9428
             access: proxy
-    dashboardProviders:
-      dashboardproviders.yaml:
-        apiVersion: 1
-        providers:
-          - name: default
-            orgId: 1
-            folder: "Lab Dashboards"
-            type: file
-            disableDeletion: false
-            editable: true
-            options:
-              path: /var/lib/grafana/dashboards/default
-
-    dashboards:
-      default:
-        kubernetes-cluster:
-          gnetId: 7249
-          revision: 1
-          datasource: VictoriaMetrics
-        victoriametrics-single:
-          gnetId: 10229
-          revision: 8
-          datasource: VictoriaMetrics
-        node-exporter-full:
-          gnetId: 1860
-          revision: 37
-          datasource: VictoriaMetrics
-
     grafana.ini:
       server:
         root_url: http://localhost:30300
