@@ -24,8 +24,6 @@ spec:
   values:
     adminUser: admin
     adminPassword: admin123
-    plugins:
-      - victoriametrics-logs-datasource
     initChownData:
       enabled: false
     securityContext:
@@ -51,10 +49,6 @@ spec:
             url: http://victoria-metrics-victoria-metrics-single-server.victoria-metrics.svc.cluster.local:8428
             access: proxy
             isDefault: true
-          - name: VictoriaLogs
-            type: victoriametrics-logs-datasource
-            url: http://victoria-logs-victoria-logs-single-server.victoria-logs.svc.cluster.local:9428
-            access: proxy
     grafana.ini:
       server:
         root_url: http://localhost:30300
