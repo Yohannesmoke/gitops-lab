@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: victoria-metrics
+  namespace: victoria-metrics
+spec:
+  interval: 1h0s
+  chart:
+    spec:
+      chart: victoria-metrics-single
+      version: "0.x.x"
+      sourceRef:
+        kind: HelmRepository
+        name: victoriametrics
+        namespace: flux-system
+      interval: 1h0s
+  values:
+    server:
+      retentionPeriod: 7d
+      persistentVolume:
+        enabled: true
+        size: 10Gi
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+      extraArgs:
+        # allow metrics to be ingested via remote write
+        httpListenAddr: ":8428"
