@@ -28,13 +28,16 @@ spec:
           cpu: 500m
           memory: 512Mi
       extraArgs:
-        # allow metrics to be ingested via remote write
         httpListenAddr: ":8428"
-        promscrape.config: /config/scrape.yaml
-      extraVolumes:
-        - name: scrape-config
-          configMap:
-            name: victoria-metrics-scrape-config
-      extraVolumeMounts:
-        - name: scrape-config
-          mountPath: /config
+      scrape:
+        enabled: true
+        config:
+          global:
+            scrape_interval: 30s
+          scrape_configs:
+            - job_name: ubuntu-host
+              static_configs:
+                - targets:
+                    - 192.168.0.105:9100
+                  labels:
+                    instance: yohannes-ubuntu
