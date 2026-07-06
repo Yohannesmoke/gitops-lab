@@ -6,6 +6,7 @@ resources:
   - harbor/helmrelease.yaml
   - victoria-metrics/namespace.yaml
   - victoria-metrics/helmrepo.yaml
+  - victoria-metrics/scrape-config.yaml
   - victoria-metrics/helmrelease.yaml
   - victoria-logs/namespace.yaml
   - victoria-logs/helmrelease.yaml
