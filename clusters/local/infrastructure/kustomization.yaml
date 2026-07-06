@@ -15,3 +15,7 @@ resources:
   - grafana/namespace.yaml
   - grafana/helmrepo.yaml
   - grafana/helmrelease.yaml
+  - kube-state-metrics/namespace.yaml
+  - kube-state-metrics/helmrepo.yaml
+  - kube-state-metrics/helmrelease.yaml
+  - node-exporter/helmrelease.yaml
